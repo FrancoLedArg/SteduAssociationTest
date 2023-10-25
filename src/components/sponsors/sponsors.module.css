@@ -1,0 +1,24 @@
+.sponsor_images {
+  height: 5rem;
+  width: auto;
+  filter: grayscale(100%);
+}
+
+@media screen and (max-width: 1000px) {
+  .sponsor_images {
+    height: 4rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .sponsor_images {
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .sponsor_images {
+    height: 2rem;
+  }
+}
+

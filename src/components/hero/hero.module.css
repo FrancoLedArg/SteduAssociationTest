@@ -1,0 +1,85 @@
+.hero_container {
+  gap: 5rem;
+}
+
+.oval {
+  position: relative;
+  z-index: 5;
+}
+
+.oval img {
+  width: 120%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.button {
+  min-width: 15rem;
+  padding: 2rem 5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button::before {
+  width: 100%;
+  height: 100%;
+  content: '';
+  position: absolute;
+  background-size: 300%;
+  background: linear-gradient(
+    to top,
+    var(--medium-blue),
+    var(--light-blue)
+  );
+  border-radius: 10rem;
+}
+
+.button::after {
+  width: 97%;
+  height: 87.5%;
+  content: '';
+  position: absolute;
+  background-color: var(--background-grey);
+  border-radius: 10rem;
+}
+
+.button span {
+  z-index: 5;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+@media screen and (max-width: 1400px) {
+  .hero_container {
+    gap: 8rem;
+  }
+
+}
+
+@media screen and (max-width: 1100px) {
+  .hero_container {
+    gap: 7rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .hero_container {
+    gap: 6rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .hero_container {
+    gap: 4.5rem;
+  }
+}
+
+
