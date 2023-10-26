@@ -1,4 +1,3 @@
-/*
 'use client'
 
 import Image from 'next/image'
@@ -14,30 +13,28 @@ import { members } from '../../utils/team'
 
   // This is not actually my carousell, but an inspiration from https://camillemormal.com/
 
-  // If you have any trouble understanding how this works, consult this youtube video https://www.youtube.com/watch?v=PkADl0HubMY&ab_channel=Hyperplexed
+  // If you have any trouble understanding how this works, watch this youtube video https://www.youtube.com/watch?v=PkADl0HubMY&ab_channel=Hyperplexed
 
-  // There is a minor fixation in the code so it adapts to a restricted movement that involves the 'maxPercentage'
-
-  // If you need more help, you can allways contact me via email at francoledesma100@gmail.com
+  // There is a fix in the code so it adapts to a restricted movement that involves the 'maxPercentage'
 
 export default function Team() {
   // Create a reference for the track element
-  const trackRef = useRef(null)
+  const trackRef = useRef<HTMLUListElement>(null)
 
   // Tracking the width of the device and track
-  let windowWidth = undefined
-  let trackWidth = undefined
+  let windowWidth: number
+  let trackWidth: number
 
   //  Tracking the maximum percentage of movement for the track
-  let maxPercentage = undefined
+  let maxPercentage: number
 
   // Track the coordinates of the mouse
-  let mouseDown = 0
+  let mouseDown: number = 0
 
   // Track of the percentages
-  let percentage = undefined
-  let prevPercentage = 0
-  let nextPercentage = undefined
+  let percentage: number
+  let prevPercentage: number = 0
+  let nextPercentage: number
 
   // useEffect to set up event listeners and handle cleanup
 
@@ -52,7 +49,7 @@ export default function Team() {
     }
 
     // Calculate the maximum percentage
-    const offset = parseInt(
+    const offset = Math.floor(
       (windowWidth * 100) / trackWidth
     )
 
@@ -78,26 +75,30 @@ export default function Team() {
     }
   }, [])
 
-  const handleOnDown = (e) => {
+  const handleOnDown = (e: MouseEvent | TouchEvent) => {
     // The coordinates at the moment of clicking
-    if (e.clientX === undefined && e.touches && e.touches.length > 0) {
+    if (e instanceof MouseEvent) {
+      mouseDown = e.clientX
+    } else if (e.touches && e.touches.length > 0) {
       mouseDown = e.touches[0].clientX
     } else {
-      mouseDown = e.clientX
+      mouseDown = 0
     }
   }
 
-  const handleOnMove = (e) => {
+  const handleOnMove = (e: MouseEvent | TouchEvent) => {
     // If coordinates are 0, quit the function
     if(mouseDown === 0) return
 
     // The distance the mouse traveled
-    let mouseDelta = undefined
+    let mouseDelta: number
 
-    if (e.clientX === undefined && e.touches && e.touches.length > 0) {
-      mouseDelta = parseFloat(mouseDown) - e.touches[0].clientX
+    if (e instanceof MouseEvent) {
+      mouseDelta = Math.floor(mouseDown) - e.clientX
+    } else if (e.touches && e.touches.length > 0) {
+      mouseDelta = Math.floor(mouseDown) - e.touches[0].clientX
     } else {
-      mouseDelta = parseFloat(mouseDown) - e.clientX
+      mouseDelta = 0
     }
 
     // Calculate the amount of distance relative to the device's screen size,
@@ -107,8 +108,8 @@ export default function Team() {
     // Calculate the percentage of the track that needs to move with the mouse movement
     percentage = (mouseDelta / maxDelta) * -100
 
-    const nextPercentageUnconstrained = parseFloat(
-      parseFloat(prevPercentage) + percentage
+    const nextPercentageUnconstrained = Math.floor(
+      Math.floor(prevPercentage) + percentage
     )
 
     // Calculate the next percentage constrained between 0 and maxPercentage
@@ -119,9 +120,11 @@ export default function Team() {
     // Update the percentage
     percentage = nextPercentage
 
-    trackRef.current.animate({
-      transform: `translate(${nextPercentage}%, 0%)`
-    }, { duration: 1200, fill: "forwards" });
+    if (trackRef.current) {
+      trackRef.current.animate({
+        transform: `translate(${nextPercentage}%, 0%)`
+      }, { duration: 1200, fill: "forwards" });
+    }
   }
 
   const handleOnUp = () => {
@@ -135,15 +138,15 @@ export default function Team() {
   return (
     <section className={styles.team_container}>
       <section className='section-grid'>
-        <h5>
+        <span className='h5'>
           OUR TEAM
-        </h5>
+        </span>
 
-        <h2 className='white'>
+        <h2 className='h2 white'>
           The people that makes this possible
         </h2>
 
-        <h3 className='off-white'>
+        <h3 className='h3 off-white'>
           They devoted their time, effort, and resources to give people the education they deserve.
         </h3>
       </section>
@@ -182,4 +185,3 @@ export default function Team() {
     </section>
   )
 }
-*/

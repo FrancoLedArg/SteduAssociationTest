@@ -9,11 +9,11 @@ export default function Footer() {
   return (
     <footer className={styles.footer_container}>
       <div className={styles.contact}>
-        <h5 className='white'>
+        <span className='h5 white'>
           CONTACT US
-        </h5>
+        </span>
 
-        <h1 className='black'>
+        <h1 className='h1 black'>
           Get involved in
           <br />
           our mission
@@ -47,16 +47,8 @@ export default function Footer() {
 
       <div className={styles.footer}>
         <span>
-          @2023 Stedu Association, all rights reserved
+          © 2023 Stedu Association, all rights reserved
         </span>
-
-        <Link href={'#'}>
-          Terms & Conditions
-        </Link>
-
-        <Link href={'#'}>
-          Privacy Policy
-        </Link>
       </div>
     </footer>
   )

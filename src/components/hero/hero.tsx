@@ -9,16 +9,13 @@ import styles from './hero.module.css'
 export default function Hero() {
   return (
     <section
-      className={`
-        section-column
-        ${styles.hero_container}`
-      }
+      className='section-column'
     >
-      <h5>
+      <span className='h5'>
         STEDU ASSOCIATION
-      </h5>
+      </span>
 
-      <h1 className="white">
+      <h1 className='h1 white'>
         Providing <span className={styles.oval}>
           STEM
           <Image
@@ -32,7 +29,7 @@ export default function Hero() {
         and opportunities for all
       </h1>
 
-      <h3 className="off-white">
+      <h3 className='h3 off-white'>
         From California and South Korea, since 2020. This is a dummy subtitle btw.
       </h3>
 

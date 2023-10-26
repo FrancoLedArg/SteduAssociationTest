@@ -21,15 +21,15 @@ const stats = [
 export default function About() {
   return (
     <section className='section-grid'>
-      <h5>
+      <span className='h5'>
         ABOUT US
-      </h5>
+      </span>
 
-      <h2 className='white'>
+      <h2 className='h2 white'>
         Some insights about Stedu Association
       </h2>
 
-      <h3 className='off-white'>
+      <h3 className='h3 off-white'>
         We provide availability and accessibility to STEM education for the future leaders of society.
       </h3>
 
