@@ -200,9 +200,8 @@ a {
 
 .section-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 15rem;
 }
 
 .section-column {
@@ -291,7 +290,7 @@ a {
     gap: 15rem;
   }
 
-  .section-row, .section-column, .section-grid {
+  .section-column, .section-grid {
     width: 70%;
   }
 
@@ -322,7 +321,7 @@ a {
 }
 
 @media screen and (max-width: 1100px) {
-  .section-row, .section-column, .section-grid {
+  .section-column, .section-grid {
     width: 80%;
   }
 
@@ -345,12 +344,6 @@ a {
     font-size: 1.4rem;
     line-height: calc(1.4rem * 1.4);
     letter-spacing: 3px;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .section-row {
-    gap: 10rem;
   }
 }
 
@@ -405,19 +398,13 @@ a {
   }
 }
 
-@media screen and (max-width: 750px) {
-  .section-row {
-    gap: 5rem;
-  }
-}
-
 
 @media screen and (max-width: 650px) {
   main {
     gap: 15rem;
   }
 
-  .section-row, .section-column, .section-grid {
+  .section-column, .section-grid {
     width: 90%;
   }
 
@@ -427,10 +414,6 @@ a {
 
   .section-grid > :nth-child(3) {
     text-align: center;
-  }
-
-  .section-row {
-    gap: 3rem;
   }
 
   .h1 {
@@ -484,9 +467,5 @@ a {
   .button-light, .button-dark {
     padding: 1.25rem 0;
     font-size: 1.2rem;
-  }
-
-  .section-row {
-    gap: 2rem;
   }
 }
