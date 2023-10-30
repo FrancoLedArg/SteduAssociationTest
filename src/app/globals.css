@@ -106,7 +106,7 @@ a {
 .blue {
   background: linear-gradient(
     to top,
-    var(--medium-blue),
+    var(--medium-blue) -50%,
     var(--light-blue)
   );
   background-size: 300%;
