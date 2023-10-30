@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  padding: 3rem 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.header img {
+  height: 3rem;
+  width: auto;
+}
+
+.header nav {
+  display: flex;
+  gap: 2rem;
+}

@@ -168,6 +168,7 @@ export default function Team() {
                   width={400}
                   height={400}
                   draggable='false'
+                  loading='eager'
                 />
               </div>
 

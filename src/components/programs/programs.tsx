@@ -8,29 +8,6 @@ import styles from './programs.module.css'
 // Utils
 import { list } from '../../utils/programs'
 
-function EachProgram({ data }: { data: any }) {
-  const { index, title, subtitle } = data
-
-  const [display, setDisplay] = useState(false)
-
-  const handleCheck = async () => {
-    setDisplay(!display)
-    console.log('displayed', display)
-  }
-
-  return (
-    <li className={styles.programs_anchor}>
-      <span className='h1 blue'>
-        {index}
-      </span>
-
-      <span className='h1 white'>
-        {title}
-      </span>
-    </li>
-  )
-}
-
 export default function Programs() {
   return (
     <section
@@ -50,7 +27,30 @@ export default function Programs() {
         `}
       >
         {list.map((e, index) => (
-          <EachProgram key={index} data={e}/>
+          <li
+            key={index}
+            className={styles.programs_anchor}
+          >
+            <div className={styles.programs_anchor_displayed}>
+              <span className='h1 blue'>
+                {e.index}
+              </span>
+
+              <span className='h1 white'>
+                {e.title}
+              </span>
+            </div>
+
+            <div className={styles.programs_anchor_hidden}>
+              <span className='h1 black'>
+                {e.index}
+              </span>
+
+              <span className='h3 black'>
+                {e.subtitle}
+              </span>
+            </div>
+          </li>
         ))}
       </ul>
     </section>

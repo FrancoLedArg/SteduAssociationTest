@@ -39,11 +39,11 @@ export default function About() {
             key={index}
             className={styles.about_boxes}
           >
-            <span className='h1'>
+            <span className='h1 white'>
               {e.title}
             </span>
 
-            <span className='h3'>
+            <span className='h3 off-white'>
               {e.subtitle}
             </span>
           </li>

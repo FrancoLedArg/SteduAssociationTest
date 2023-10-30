@@ -9,7 +9,7 @@
   --medium-grey: #242424;
   --dark-grey: #292929;
   --light-grey: #7e7e7e;
-  --medium-blue: #2033e2;
+  --medium-blue: #1952f0;
   --light-blue: #20b4e2;
 }
 
@@ -26,13 +26,13 @@ html {
 
 main {
   width: 100%;
-  padding-top: 15rem;
+  padding-top: 17.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25rem;
+  gap: 20rem;
   background-image: url('/texture.svg');
   background-repeat: repeat;
   overflow-x: hidden;
@@ -252,6 +252,12 @@ a {
   grid-row: 3/4;
 }
 
+@media screen and (width <= 1600px) {
+  .section-row, .section-column, .section-grid {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   main {
     gap: 20rem;
@@ -277,13 +283,18 @@ a {
     line-height: calc(1.8rem * 1.4);
     letter-spacing: 3px;
   }
-
-  .section-row, .section-column, .section-grid {
-    width: 80%;
-  }
 }
 
 @media screen and (width <= 1280px) {
+  main {
+    padding-top: 15rem;
+    gap: 15rem;
+  }
+
+  .section-row, .section-column, .section-grid {
+    width: 70%;
+  }
+
   .section-column {
     gap: 4rem;
   }
@@ -311,6 +322,10 @@ a {
 }
 
 @media screen and (max-width: 1100px) {
+  .section-row, .section-column, .section-grid {
+    width: 80%;
+  }
+
   .h1 {
     font-size: 5rem;
     line-height: calc(5rem * 1.4);
@@ -402,6 +417,22 @@ a {
     gap: 15rem;
   }
 
+  .section-row, .section-column, .section-grid {
+    width: 90%;
+  }
+
+  .section-grid {
+    align-items: center;
+  }
+
+  .section-grid > :nth-child(3) {
+    text-align: center;
+  }
+
+  .section-row {
+    gap: 3rem;
+  }
+
   .h1 {
     font-size: 3rem;
     line-height: calc(3rem * 1.4);
@@ -438,22 +469,6 @@ a {
     width: 13rem;
     font-size: 1.3rem;
   }
-
-  .section-row, .section-column, .section-grid {
-    width: 90%;
-  }
-
-  .section-grid {
-    align-items: center;
-  }
-
-  .section-grid > :nth-child(3) {
-    text-align: center;
-  }
-
-  .section-row {
-    gap: 3rem;
-  }
 }
 
 @media screen and (max-width: 420px) {
@@ -462,7 +477,7 @@ a {
   }
 
   .h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     line-height: calc(2rem * 1.4);
   }
 

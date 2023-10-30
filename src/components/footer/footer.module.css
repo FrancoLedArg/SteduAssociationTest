@@ -107,6 +107,12 @@
   }
 }
 
+@media screen and (width <= 1280px) {
+  .footer_container {
+    height: 72rem;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .contact nav {
     width: 100%;
@@ -140,10 +146,6 @@
 }
 
 @media screen and (max-width: 700px) {
-  .footer_container {
-    height: 75rem;
-  }
-
   .contact {
     gap: 4rem;
   }

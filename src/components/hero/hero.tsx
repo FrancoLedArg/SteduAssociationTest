@@ -11,10 +11,6 @@ export default function Hero() {
     <section
       className='section-column'
     >
-      <span className='h5'>
-        STEDU ASSOCIATION
-      </span>
-
       <h1 className='h1 white'>
         Providing <span className={styles.oval}>
           STEM

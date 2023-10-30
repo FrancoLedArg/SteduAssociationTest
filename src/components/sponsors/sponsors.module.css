@@ -4,9 +4,15 @@
   filter: grayscale(100%);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (width <= 1280px) {
   .sponsor_images {
     height: 4rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sponsor_images {
+    height: 3.5rem;
   }
 }
 
