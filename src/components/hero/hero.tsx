@@ -31,9 +31,11 @@ export default function Hero() {
 
       <Link
         href={'/'}
-        className={styles.button}
+        className='button-light'
       >
-        <span>Our Programs</span>
+        <span className="white">
+          Our Programs
+        </span>
       </Link>
     </section>
   )

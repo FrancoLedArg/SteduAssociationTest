@@ -31,7 +31,9 @@ export default function Footer() {
             href={'https://lnkd.in/gqM__peq'}
             className='button-dark'
           >
-            Join the team
+            <span className='black'>
+              Join the team
+            </span>
           </Link>
 
           <Link
