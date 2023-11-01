@@ -12,12 +12,6 @@ export default function Header() {
         width={100}
         height={50}
       />
-
-      <nav>
-        <span className='white'>Header</span>
-        <span className='white'>Header</span>
-        <span className='white'>Header</span>
-      </nav>
     </header>
   )
 }
