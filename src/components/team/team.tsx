@@ -21,6 +21,9 @@ export default function Team() {
   // Create a reference for the track element
   const trackRef = useRef<HTMLUListElement>(null)
 
+  // Track page visibility
+  const isPageVisible = useRef(false)
+
   // Tracking the width of the device and track
   let windowWidth: number
   let trackWidth: number
@@ -56,26 +59,55 @@ export default function Team() {
     // REVIEW THIS LOGIC PLEASE
     maxPercentage = (103 - offset) * -1
 
-    // Add event listeners
-    window.addEventListener('mousedown', handleOnDown)
-    window.addEventListener('touchstart', handleOnDown)
-    window.addEventListener('mouseup', handleOnUp)
-    window.addEventListener('touchend', handleOnUp)
-    window.addEventListener('mousemove', handleOnMove)
-    window.addEventListener('touchmove', handleOnMove)
+    const handleVisibilityChange = () => {
+      isPageVisible.current = document.visibilityState === 'visible'
 
-    // Cleanup: Remove event listeners when the component unmounts
-    return () => {
-      window.removeEventListener('mousedown', handleOnDown)
-      window.removeEventListener('touchstart', handleOnDown)
-      window.removeEventListener('mouseup', handleOnUp)
-      window.removeEventListener('touchend', handleOnUp)
-      window.removeEventListener('mousemove', handleOnMove)
-      window.removeEventListener('touchmove', handleOnMove)
+      if(isPageVisible.current) {
+        // Add event listeners when the document is visible
+        window.addEventListener('mousedown', handleOnDown)
+        window.addEventListener('touchstart', handleOnDown)
+        window.addEventListener('mouseup', handleOnUp)
+        window.addEventListener('touchend', handleOnUp)
+        window.addEventListener('mousemove', handleOnMove)
+        window.addEventListener('touchmove', handleOnMove)
+      } else {
+        // Remove the event listeners then the document is not visible
+        window.removeEventListener('mousedown', handleOnDown)
+        window.removeEventListener('touchstart', handleOnDown)
+        window.removeEventListener('mouseup', handleOnUp)
+        window.removeEventListener('touchend', handleOnUp)
+        window.removeEventListener('mousemove', handleOnMove)
+        window.removeEventListener('touchmove', handleOnMove)
+      }
+    }
+
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      isPageVisible.current = document.visibilityState === 'visible'
+
+      // Check the initial visiblity state for the first load
+      if(isPageVisible.current) {
+        // Add event listeners when the document is visible
+        window.addEventListener('mousedown', handleOnDown)
+        window.addEventListener('touchstart', handleOnDown)
+        window.addEventListener('mouseup', handleOnUp)
+        window.addEventListener('touchend', handleOnUp)
+        window.addEventListener('mousemove', handleOnMove)
+        window.addEventListener('touchmove', handleOnMove)
+      }
+
+      // Add the visibility change event listener
+      document.addEventListener('visibilitychange', handleVisibilityChange)
+
+      // Cleanup: Remove the visibility change event listener
+      return () => {
+        window.removeEventListener('visibilitychange', handleVisibilityChange)
+      }
     }
   }, [])
 
   const handleOnDown = (e: MouseEvent | TouchEvent) => {
+    console.log('Mouse Down')
+
     // The coordinates at the moment of clicking
     if (e instanceof MouseEvent) {
       mouseDown = e.clientX

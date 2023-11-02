@@ -60,18 +60,7 @@
   }
 }
 
-@media screen and (max-width: 1400px) {
-  .programs_anchor {
-    height: 20rem;
-  }
-
-  .programs_anchor_displayed,
-  .programs_anchor_hidden {
-    column-gap: 1rem;
-  }
-}
-
-@media screen and (width <= 1280px) {
+@media screen and (width <= 1366px) {
   .programs_anchor {
     height: 17.5rem;
   }

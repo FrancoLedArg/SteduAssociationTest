@@ -4,7 +4,7 @@
   filter: grayscale(100%);
 }
 
-@media screen and (width <= 1280px) {
+@media screen and (width <= 1366px) {
   .sponsor_images {
     height: 3rem;
   }
