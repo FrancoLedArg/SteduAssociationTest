@@ -1,6 +1,3 @@
-
-import styles from './page.module.css'
-
 // Components
 import Hero from '@/components/hero/hero'
 import Sponsors from '@/components/sponsors/sponsors'
@@ -11,7 +8,7 @@ import Footer from '@/components/footer/footer'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <Hero />
       <Sponsors />
       <About />

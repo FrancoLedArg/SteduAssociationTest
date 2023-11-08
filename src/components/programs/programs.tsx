@@ -1,56 +1,28 @@
 'use client'
 
-// Css
-import styles from './programs.module.css'
+import React, { useState, useEffect } from 'react'
 
-// Utils
-import { list } from '../../utils/programs'
+// Components
+import ProgramsMobile from './mobile'
+import ProgramsDesktop from './desktop'
 
 export default function Programs() {
-  return (
-    <section
-      className={`
-        section-column
-        ${styles.programs_container}
-      `}
-    >
-      <span className='h5'>
-        OUR PROGRAMS
-      </span>
+  const [isMobile, setIsMobile] = useState<boolean>()
 
-      <ul
-        className={`
-          section-column
-          ${styles.programs_anchor_container}
-        `}
-      >
-        {list.map((e, index) => (
-          <li
-            key={index}
-            className={styles.programs_anchor}
-          >
-            <div className={styles.programs_anchor_displayed}>
-              <span className='h1 blue'>
-                {e.index}
-              </span>
+  useEffect(() => {
+    function device() {
+      if(typeof window !== 'undefined') {
+        return /Android|iPhone|iPad/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0
+      }
+    }
 
-              <span className='h1 white'>
-                {e.title}
-              </span>
-            </div>
+    setIsMobile(device())
+  }, [])
 
-            <div className={styles.programs_anchor_hidden}>
-              <span className='h1 black'>
-                {e.index}
-              </span>
-
-              <span className='h3 black'>
-                {e.subtitle}
-              </span>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+  if (isMobile) {
+    return <ProgramsMobile/>
+  } else {
+    return <ProgramsDesktop/>
+  }
 }
+

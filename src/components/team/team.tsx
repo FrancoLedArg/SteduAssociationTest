@@ -106,8 +106,6 @@ export default function Team() {
   }, [])
 
   const handleOnDown = (e: MouseEvent | TouchEvent) => {
-    console.log('Mouse Down')
-
     // The coordinates at the moment of clicking
     if (e instanceof MouseEvent) {
       mouseDown = e.clientX

@@ -18,15 +18,13 @@
 .programs_anchor_hidden {
   width: 100%;
   height: 100%;
-  padding-left: 14.5%;
+  padding: 0 14.5%;
   position: relative;
   display: grid;
-  grid-template-columns: 12rem 1fr;
+  grid-template-columns: 12rem 1fr 3rem;
   align-items: center;
   column-gap: 3rem;
   overflow: hidden;
-  transform: translateY(0%);
-  transition: 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .programs_anchor_hidden {
@@ -37,26 +35,31 @@
   );
 }
 
+.programs_anchor input {
+  display: none;
+}
+
 .programs_anchor_displayed span,
-.programs_anchor_hidden> :nth-child(1){
+.programs_anchor_hidden> :nth-child(1) {
   text-align: start;
 }
 
-.programs_anchor:hover .programs_anchor_displayed,
-.programs_anchor:hover .programs_anchor_hidden {
-  transform: translateY(-100%);
-}
-
+.programs_anchor_hidden > :nth-child(2),
 .programs_anchor_hidden > :nth-child(2) {
-  width: 85%;
   font-weight: 700;
   text-align: start;
+}
+
+.programs_anchor_hidden a img {
+  width: 100%;
+  height: auto;
+  transform: rotate(180deg);
 }
 
 @media screen and (width <= 1600px) {
   .programs_anchor_displayed,
   .programs_anchor_hidden {
-    padding-left: 9.75%;
+    padding: 0 9.75%;
   }
 }
 
@@ -67,8 +70,8 @@
 
   .programs_anchor_displayed,
   .programs_anchor_hidden {
-    padding-left: 14.5%;
-    grid-template-columns: 10rem 1fr;
+    padding: 0 14.5%;
+    grid-template-columns: 10rem 1fr 3rem;
   }
 }
 
@@ -79,7 +82,7 @@
 
   .programs_anchor_displayed,
   .programs_anchor_hidden {
-    padding-left: 9.75%;
+    padding: 0 9.75%;
   }
 
 }
@@ -91,7 +94,7 @@
 
   .programs_anchor_displayed,
   .programs_anchor_hidden {
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: 7rem 1fr 3rem;
   }
 
 }
@@ -127,15 +130,10 @@
     display: none;
   }
 
-  .programs_anchor:hover .programs_anchor_displayed,
-  .programs_anchor:hover .programs_anchor_hidden {
-    transform: translateY(0%);
-  }
-
   .programs_anchor_displayed {
     width: 100%;
     height: 100%;
-    padding-left: 0%;
+    padding: 0;
     position: relative;
     display: flex;
     align-items: center;
