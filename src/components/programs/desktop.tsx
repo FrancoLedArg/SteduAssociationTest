@@ -12,6 +12,8 @@ import styles from './programs.module.css'
 import { list } from '../../utils/programs'
 
 export default function ProgramsDesktop() {
+  const [hover, setHover] = useState(false)
+
   return (
     <section
       className={`
@@ -30,8 +32,6 @@ export default function ProgramsDesktop() {
         `}
       >
         {list.map((e, index) => {
-          const [hover, setHover] = useState(false)
-
           const { title, subtitle } = e
 
           return(
