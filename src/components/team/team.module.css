@@ -26,6 +26,10 @@
   gap: 5rem;
   user-select: none;
   -ms-user-select: none;
+
+  touch-action: pan-y; /* Disable vertical pan/scroll */
+  white-space: nowrap; /* Prevent wrapping of carousel items */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS devices */
 }
 
 .team_track_boxes {

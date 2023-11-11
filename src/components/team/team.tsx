@@ -106,11 +106,15 @@ export default function Team() {
   }, [])
 
   const handleOnDown = (e: MouseEvent | TouchEvent) => {
-    // The coordinates at the moment of clicking
-    if (e instanceof MouseEvent) {
-      mouseDown = e.clientX
-    } else if (e.touches && e.touches.length > 0) {
-      mouseDown = e.touches[0].clientX
+    // Check if it's a touch event and if it occurred withing the trackRef element
+
+    if (
+      (e instanceof MouseEvent || e instanceof TouchEvent) &&
+      e.target instanceof Node &&
+      trackRef.current &&
+      trackRef.current.contains(e.target)
+    ) {
+      mouseDown = e instanceof MouseEvent ? e.clientX : e.touches[0].clientX
     } else {
       mouseDown = 0
     }
@@ -118,18 +122,13 @@ export default function Team() {
 
   const handleOnMove = (e: MouseEvent | TouchEvent) => {
     // If coordinates are 0, quit the function
-    if(mouseDown === 0) return
+    if (mouseDown === 0) return
+
+    // Prevent the default behavior of the event
+    e.preventDefault()
 
     // The distance the mouse traveled
-    let mouseDelta: number
-
-    if (e instanceof MouseEvent) {
-      mouseDelta = Math.floor(mouseDown) - e.clientX
-    } else if (e.touches && e.touches.length > 0) {
-      mouseDelta = Math.floor(mouseDown) - e.touches[0].clientX
-    } else {
-      mouseDelta = 0
-    }
+    const mouseDelta = mouseDown - (e instanceof MouseEvent ? e.clientX : e.touches[0].clientX)
 
     // Calculate the amount of distance relative to the device's screen size,
     // the mouse has to travel in order to move the whole track

@@ -21,7 +21,7 @@
   padding: 0 14.5%;
   position: relative;
   display: grid;
-  grid-template-columns: 12rem 1fr 3rem;
+  grid-template-columns: 12rem 1fr 12rem;
   align-items: center;
   column-gap: 3rem;
   overflow: hidden;
@@ -44,14 +44,13 @@
   text-align: start;
 }
 
-.programs_anchor_hidden > :nth-child(2),
 .programs_anchor_hidden > :nth-child(2) {
   font-weight: 700;
   text-align: start;
 }
 
 .programs_anchor_hidden a img {
-  width: 100%;
+  width: 10rem;
   height: auto;
   transform: rotate(180deg);
 }
@@ -71,7 +70,11 @@
   .programs_anchor_displayed,
   .programs_anchor_hidden {
     padding: 0 14.5%;
-    grid-template-columns: 10rem 1fr 3rem;
+    grid-template-columns: 8rem 1fr 8rem;
+  }
+
+  .programs_anchor_hidden a img {
+    width: 7rem;
   }
 }
 
@@ -85,6 +88,11 @@
     padding: 0 9.75%;
   }
 
+  .programs_anchor_hidden > :nth-child(2) {
+    font-size: 1.3rem;
+    line-height: calc(1.3rem * 1.4);
+  }
+
 }
 
 @media screen and (max-width: 850px) {
@@ -94,19 +102,43 @@
 
   .programs_anchor_displayed,
   .programs_anchor_hidden {
-    grid-template-columns: 7rem 1fr 3rem;
+    grid-template-columns: 5rem 1fr 5rem;
   }
 
+  .programs_anchor_hidden a img {
+    width: 100%;
+  }
+
+  .programs_anchor_hidden > :nth-child(2) {
+    font-size: 1.2rem;
+    line-height: calc(1.2rem * 1.4);
+  }
 }
 
 @media screen and (max-width: 650px) {
+  .programs_container {
+    align-items: center;
+  }
+
   .programs_anchor {
     height: 11.5rem;
   }
 
-  .programs_anchor_displayed,
+  .programs_anchor_displayed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
   .programs_anchor_hidden {
-    column-gap: 0rem;
+    padding: 0 3.25rem;
+    grid-template-columns: 3rem 1fr 3rem;
+  }
+
+  .programs_anchor_hidden > :nth-child(2) {
+    font-size: 1.1rem;
+    line-height: calc(1.1rem * 1.4);
   }
 
 }
@@ -118,27 +150,5 @@
 
   .programs_anchor {
     height: 10rem;
-  }
-
-  .programs_anchor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .programs_anchor_hidden {
-    display: none;
-  }
-
-  .programs_anchor_displayed {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    overflow: hidden;
   }
 }

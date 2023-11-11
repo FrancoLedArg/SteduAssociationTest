@@ -2,7 +2,7 @@ const list = [
   {
     index: '01',
     title: 'Stedu Lab',
-    subtitle: 'A 6-8 week long free-of-cost program that teaches students how to launch their own start-up! Providing them with network, funding, feedback, community and the inspiration they need to turn their ideas into reality.',
+    subtitle: 'A 6-8 week long free-of-cost program that teaches students how to launch their own start-up!',
     oursource: 'Website link'
   },
   {
